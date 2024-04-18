@@ -24,4 +24,4 @@ def client_on(host, port):
         
         print("Fechando conexão com o servidor.")
 
-client_on("127.0.0.1", 8088)
+client_on("192.168.1.10", 8088)

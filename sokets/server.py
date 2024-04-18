@@ -58,8 +58,10 @@ def process_request(request):
     return "Comando não reconhecido."
 
 
-def server_handle(host, port):
+def server_handle( port=8085, host=None):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
+        if not host:
+            host = socket.gethostbyname(socket.gethostname())
         server_socket.bind((host, port))
         server_socket.listen()
         print(f"Servidor escutando em {host}:{port}")
@@ -74,4 +76,4 @@ def server_handle(host, port):
 
 
 # Exemplo de uso
-server_handle("127.0.0.1", 8088)
+server_handle()
